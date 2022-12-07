@@ -2,7 +2,7 @@ import React from "react";
 
 
 import "../../styles/home.css";
-import {CartaIndividual} from "../component/cartaIndividual.js";
+import {CartaIndividual} from "../component/cards";
 
 export const Planetas = (props) => (
 	<div className="container">

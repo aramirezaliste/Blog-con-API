@@ -1,6 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			personajes: [],
+			planetas: [],
 			demo: [
 				{
 					title: "FIRST",
@@ -15,6 +17,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+
+			getPersonajes: () =>{
+				fetch("https://pokeapi.co/api/v2/pokemon")
+				.then(response => response.json())
+				.then(data => setStore ({personajes: data.results}))
+			},
+
+			getPlanetas: () =>{
+				fetch("")
+			},
+
+
+
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

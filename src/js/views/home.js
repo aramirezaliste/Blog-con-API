@@ -1,16 +1,16 @@
 import React from "react";
 
 import "../../styles/home.css";
-import { Personajes } from "./personajes";
-import { Planetas } from "./planetas";
+import { CartaInicio } from "../component/cards";
+
 
 export const Home = () => (
 	<div className="container-fluid ">
-		<div className="row m-0 p-0 g-0">
-			<Personajes/>
+		<div className="row">
+			<CartaInicio titulo="Personajes" ruta="./personajes"/>
 		</div>
 		<div className="row">
-			<Planetas/>
+			<CartaInicio titulo="Planetas" ruta="./planetas"/>
 		</div>
 	
 	</div>

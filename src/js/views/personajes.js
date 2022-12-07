@@ -1,18 +1,23 @@
-import React from "react";
-
+import React, {useContext} from "react";
+import { Context } from "../store/appContext";
 import "../../styles/home.css";
-import {CartaIndividual} from "../component/cartaIndividual.js";
+
+import {CartaIndividual} from "../component/cards.js";
 
 
-export const Personajes = (props) => (
+export const Personajes = (props) => {
+	
+	const {store, actions} = useContext(Context);
+
+	return (
 	<div className="container">
-		<div className="row align-items-start">
+		<div className="row">
 			<h1>Personajes</h1>
-            <CartaIndividual titulo="Personaje" url="/personajedetalle"/>
-            <CartaIndividual titulo="Personaje" url="/personajedetalle"/>
-            <CartaIndividual titulo="Personaje" url="/personajedetalle"/>
             
+			{store.personajes.map((objeto,index )=>{
+				return <CartaIndividual titulo={objeto.name} url={"/personajedetalle/" + index} valor={index +1}/>
+			})}
 
 		</div>
 	</div>
-);
+)};
