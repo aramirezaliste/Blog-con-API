@@ -15,7 +15,8 @@ export const Personajes = (props) => {
 			<h1>Personajes</h1>
             
 			{store.personajes.map((objeto,index )=>{
-				return <CartaIndividual titulo={objeto.name} url={"/personajedetalle/" + index} valor={index +1}/>
+				let indice = index + 1;
+				return <CartaIndividual key={index} titulo={objeto.name} url={"/personajedetalle/" + index} valor={indice}/>
 			})}
 
 		</div>

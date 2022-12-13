@@ -8,11 +8,14 @@ import "../../styles/home.css";
 export const PersonajeDetalle = (props) => {
 	const {id} = useParams();
 	const { store, actions } = useContext(Context);
-	{console.log(store.personajes[1].name)}
+	let personaje = store.personajes[id];
+	let nombre = personaje.name;
+	let direccionDetalles = personaje.url;
+	console.log(direccionDetalles);
 	
 	return (
 		<div className="container">	
-			<CartaDetalle personaje={id}/>
+			<CartaDetalle personaje={nombre} />
 		</div>
 	)
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 export const CartaIndividual = (props) => [
     <div className="col m-2 p-0">
         <div className="card " style={{ minWidth: "18rem", maxWidth: "20%" }}>
@@ -9,7 +10,7 @@ export const CartaIndividual = (props) => [
                 <h5 className="card-title">{props.titulo}{" "}{props.valor}</h5>
                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <Link to={props.url}>
-                    <a className="btn btn-primary col-6 me-4">Ver {props.titulo}</a>
+                    <button className="btn btn-primary col-6 me-4">Ver {props.titulo}</button>
                 </Link>
                 <button className="btn btn-danger col-2 ms-5">💚</button>
             </div>
@@ -28,7 +29,7 @@ export const CartaDetalle = (props) => {
                         </div>
                         <div className="col-md-8">
                             <div className="card-body">
-                                <h5 className="card-title">Personaje Detallado{props.personaje}</h5>
+                                <h5 className="card-title">{props.personaje}</h5>
                                 <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                 <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                             </div>
