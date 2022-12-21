@@ -35,6 +35,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({favoritos :[...store.favoritos, nombre]})
 			},
 
+			deleteFavoritos: (nombre) =>{
+				const store = getStore();
+				console.log(nombre + " Eliminado");
+				setStore({favoritos :store.favoritos.filter((poke)=>{
+					return poke != nombre
+				})})
+			},
+
 
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {

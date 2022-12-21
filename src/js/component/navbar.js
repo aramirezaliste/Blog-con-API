@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
+	
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-light">
 			<div className="container-fluid">
@@ -16,7 +17,11 @@ export const Navbar = () => {
 					</button>
 					<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
 						{store.favoritos.map((objeto, index) => {
-							return <li className="d-flex me-3" key={index}><a className="dropdown-item" href="#">{objeto}</a><button className="btn btn-danger">X</button></li>
+							return <li className="d-flex me-3" key={index}><a className="dropdown-item" href="#">{objeto}</a><button className="btn btn-danger" value={objeto} onClick={(evento)=>{
+								console.log(evento.target.value)
+								actions.deleteFavoritos(evento.target.value)
+								console.log(store.favoritos)
+							}}>X</button></li>
 						})}
 					</ul>
 				</div>
