@@ -2,8 +2,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			personajes: [],
-			planetas: [],
+			areas: [],
 			favoritos: [],
+			detallesPersonaje: [],
 			demo: [
 				{
 					title: "FIRST",
@@ -19,28 +20,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 
-			getPersonajes: () =>{
+			getPersonajes: () => {
 				fetch("https://pokeapi.co/api/v2/pokemon")
-				.then(response => response.json())
-				.then(data => setStore ({personajes: data.results}))
+					.then(response => response.json())
+					.then(data => setStore({ personajes: data.results }))
 			},
 
-			getPlanetas: () =>{
-				fetch("");
+			getAreas: () => {
+				fetch("https://pokeapi.co/api/v2/location-area")
+					.then(response => response.json())
+					.then(data => setStore({ areas: data.results }))
 			},
 
-			addFavoritos: (nombre) =>{
+			getDetallesPersonaje: (nombre) => {
+				//console.log(nombre)
+				fetch(nombre ? "https://pokeapi.co/api/v2/pokemon/" + nombre : "https://pokeapi.co/api/v2/pokemon/1")
+					.then(response => response.json())
+					.then(data => setStore({ detallesPersonaje: data }))
+			},
+
+			addFavoritos: (nombre) => {
 				const store = getStore();
-				console.log(nombre + " En Favoritos");
-				setStore({favoritos :[...store.favoritos, nombre]})
+				//console.log(nombre + " En Favoritos");
+				setStore({ favoritos: [...store.favoritos, nombre] })
 			},
 
-			deleteFavoritos: (nombre) =>{
+			deleteFavoritos: (nombre) => {
 				const store = getStore();
-				console.log(nombre + " Eliminado");
-				setStore({favoritos :store.favoritos.filter((poke)=>{
-					return poke != nombre
-				})})
+				//console.log(nombre + " Eliminado");
+				setStore({
+					favoritos: store.favoritos.filter((poke) => {
+						return poke != nombre
+					})
+				})
 			},
 
 

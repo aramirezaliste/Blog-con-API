@@ -10,7 +10,7 @@ export const Home = () => (
 			<CartaInicio titulo="Pokemones" ruta="./personajes"/>
 		</div>
 		<div className="row">
-			<CartaInicio titulo="Planetas" ruta="./planetas"/>
+			<CartaInicio titulo="Areas" ruta="./planetas"/>
 		</div>
 	
 	</div>

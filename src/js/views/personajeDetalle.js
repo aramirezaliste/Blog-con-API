@@ -13,9 +13,10 @@ export const PersonajeDetalle = (props) => {
 	let direccionDetalles = personaje.url;
 	console.log(direccionDetalles);
 	
+	
 	return (
 		<div className="container">	
-			<CartaDetalle personaje={nombre} />
+			<CartaDetalle personaje={nombre} detalle={direccionDetalles}/>
 		</div>
 	)
 };

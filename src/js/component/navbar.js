@@ -18,7 +18,7 @@ export const Navbar = () => {
 					<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
 						{store.favoritos.map((objeto, index) => {
 							return <li className="d-flex me-3" key={index}><a className="dropdown-item" href="#">{objeto}</a><button className="btn btn-danger" value={objeto} onClick={(evento)=>{
-								console.log(evento.target.value)
+								//console.log(evento.target.value)
 								actions.deleteFavoritos(evento.target.value)
 								console.log(store.favoritos)
 							}}>X</button></li>
