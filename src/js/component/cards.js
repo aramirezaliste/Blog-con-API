@@ -1,9 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
+
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 
-export const CartaIndividual = (props) => [
-    <div className="col m-2 p-0">
+export const CartaIndividual = (props) => {
+    const {store, actions} = useContext(Context);
+
+    return (<div className="col m-2 p-0">
         <div className="card " style={{ minWidth: "18rem", maxWidth: "20%" }}>
             <img src="https://img1.pnghut.com/t/24/14/20/h7RAi8vtP1/emoticon-bulbasaur-ash-ketchum-charmeleon-charmander.jpg" className="card-img-top" alt="..." />
             <div className="card-body">
@@ -12,11 +16,13 @@ export const CartaIndividual = (props) => [
                 <Link to={props.url}>
                     <button className="btn btn-primary col-6 me-4">Ver {props.titulo}</button>
                 </Link>
-                <button className="btn btn-danger col-2 ms-5">💚</button>
+                <button className="btn btn-danger col-2 ms-5 p-1" onClick={()=>{
+                    actions.addFavoritos(props.titulo)
+                }}>💚</button>
             </div>
         </div>
-    </div>
-]
+    </div>)
+}
 
 export const CartaDetalle = (props) => {
     return (

@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			personajes: [],
 			planetas: [],
+			favoritos: [],
 			demo: [
 				{
 					title: "FIRST",
@@ -25,9 +26,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getPlanetas: () =>{
-				fetch("")
+				fetch("");
 			},
 
+			addFavoritos: (nombre) =>{
+				const store = getStore();
+				console.log(nombre + " En Favoritos");
+				setStore({favoritos :[...store.favoritos, nombre]})
+			},
 
 
 			// Use getActions to call a function within a fuction

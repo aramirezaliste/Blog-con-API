@@ -12,7 +12,7 @@ export const Personajes = (props) => {
 	return (
 	<div className="container">
 		<div className="row">
-			<h1>Personajes</h1>
+			<h1>Pokemones</h1>
             
 			{store.personajes.map((objeto,index )=>{
 				let indice = index + 1;
